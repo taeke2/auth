@@ -15,11 +15,11 @@ public class Member {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String userId;
+    private String memberId;
     private String password;
 
     public void toEntity(String id, String pw) {
-        this.userId = id;
+        this.memberId = id;
         this.password = pw;
     }
 }

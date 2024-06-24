@@ -16,7 +16,7 @@ public class MemberService {
     @Autowired PasswordEncoder passwordEncoder;
 
     public boolean validateMember(LoginRequest loginRequest) {
-        Member member = memberRepository.findByUserId(loginRequest.getId())
+        Member member = memberRepository.findByMemberId(loginRequest.getId())
                 .orElseThrow(() -> new UsernameNotFoundException("User not found with id: " + loginRequest.getId()));
         return passwordEncoder.matches(loginRequest.getPw(), member.getPassword());
     }
