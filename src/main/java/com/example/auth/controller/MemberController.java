@@ -1,6 +1,7 @@
 package com.example.auth.controller;
 
 import com.example.auth.dto.LoginRequest;
+import com.example.auth.dto.LoginResponse;
 import com.example.auth.dto.RegisterRequest;
 import com.example.auth.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +16,8 @@ public class MemberController {
     MemberService memberService;
 
     @PostMapping("/login")
-    public String login(@RequestBody LoginRequest loginRequest) {
-        boolean validated = memberService.validateMember(loginRequest);
-        return validated ? "success" : "fail";
+    public LoginResponse login(@RequestBody LoginRequest loginRequest) {
+        return memberService.validateMember(loginRequest);
     }
 
     @PostMapping("/register")
